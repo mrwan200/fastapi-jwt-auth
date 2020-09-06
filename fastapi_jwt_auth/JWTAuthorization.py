@@ -3,12 +3,12 @@ from fastapi import Header, HTTPException
 from datetime import datetime, timezone, timedelta
 from typing import Optional, Dict, Union, Callable
 
-class AuthJWT:
-    _access_token_expires = os.getenv("AUTHJWT_ACCESS_TOKEN_EXPIRES") or timedelta(minutes=15)
-    _refresh_token_expires = os.getenv("AUTHJWT_REFRESH_TOKEN_EXPIRES") or timedelta(days=30)
-    _blacklist_enabled = os.getenv("AUTHJWT_BLACKLIST_ENABLED") or None
-    _secret_key = os.getenv("AUTHJWT_SECRET_KEY") or None
-    _algorithm = os.getenv("AUTHJWT_ALGORITHM") or 'HS256'
+class AuthJWT(self, secret_key: str=None, _access_token_expires=timedelta(minutes=15), _refresh_token_expires=timedelta(days=30), _blacklist_enabled=None, _algorithm="HS256") :
+    _access_token_expires = self._access_token_expires
+    _refresh_token_expires = self._refresh_token_expires
+    _blacklist_enabled = self._blacklist_enabled
+    _secret_key = self._blacklist_enabled
+    _algorithm = self._algorithm
     _token_in_blacklist_callback = None
     _token = None
 
